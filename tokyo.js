@@ -57,7 +57,7 @@ $let[kapat;$channelSendMessage[$get[ticket];$replaceText[$getServerVar[tmesaj1];
 
 **Ticket'ı açarken şu mesajı girdin:** $message
 
-**Ticket'ı kapatmak için aşşağıdaki <:zt_red:852916499584122920> tepkisine basınız ya da \`zt.ticket-kapat\` kodunu giriniz.**}{color:ffdbfe};yes]]
+**Ticket'ı kapatmak için aşşağıdaki ❌ tepkisine basınız ya da \`zt.ticket-kapat\` kodunu giriniz.**}{color:ffdbfe};yes]]
 $modifyChannelPerms[$get[ticket];-viewchannel;$guildID]
 $let[ticket;$newTicket[$username・$sum[$getServerVar[ticket];1];.{delete:1s};$getServerVar[ticketk2];yes;<:zt_red:852916499584122920> **!!HATA!!**]]
 
