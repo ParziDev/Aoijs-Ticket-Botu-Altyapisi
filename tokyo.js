@@ -24,7 +24,7 @@ bot.variables({
   ticketk:"",
   ticketk2:"",
   tmesaj1:"-etiket-",
-  tmesaj2:"**\`$usertag\` birazdan bir yetkili gelip senle ilgilenecek.**",
+  tmesaj2:"**\`$userTag\` birazdan bir yetkili gelip senle ilgilenecek.**",
 }) 
 
 //Status
