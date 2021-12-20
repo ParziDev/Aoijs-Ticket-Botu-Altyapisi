@@ -24,7 +24,7 @@ bot.variables({
   ticketk:"",
   ticketk2:"",
   tmesaj1:"-etiket-",
-  tmesaj2:"**\`$userTag\` birazdan bir yetkili gelip senle ilgilenecek.**",
+  tmesaj2:"**-etiket- birazdan bir yetkili gelip senle ilgilenecek.**",
 }) 
 
 //Status
@@ -57,7 +57,7 @@ $let[kapat;$channelSendMessage[$get[ticket];$replaceText[$getServerVar[tmesaj1];
 
 **Ticket'ı açarken şu mesajı girdin:** $message
 
-**Ticket'ı kapatmak için aşşağıdaki ❌ tepkisine basınız ya da \`zt.ticket-kapat\` kodunu giriniz.**}{color:ffdbfe};yes]]
+**Ticket'ı kapatmak için aşşağıdaki ❌ tepkisine basınız ya da \`.ticket-kapat\` kodunu giriniz.**}{color:ffdbfe};yes]]
 $modifyChannelPerms[$get[ticket];-viewchannel;$guildID]
 $let[ticket;$newTicket[$username・$sum[$getServerVar[ticket];1];.{delete:1s};$getServerVar[ticketk2];yes;<:zt_red:852916499584122920> **!!HATA!!**]]
 
@@ -83,11 +83,11 @@ $let[id;$channelSendMessage[$channelID;{description:
 bot.awaitedCommand({
   name: "evet",
   code: `
-$channelSendMessage[$channelID;**Sayın Yetkililer Ticket Kullanıcıya Kapatılmıştır Lütfen \`.ticket kapat\` komudunu kullanın.**]
+$channelSendMessage[$channelID;**Sayın Yetkililer Ticket Kullanıcıya Kapatılmıştır Lütfen \`.ticket sil\` komudunu kullanın.**]
 $wait[1s]
 $modifyChannelPerms[$channelID;-viewchannel;-sendmessages;$authorID]
  $wait[3s]
- $channelSendMessage[$channelID;☑️ Ticket 3 saniye içerisinde kapanacak!;no]
+ $channelSendMessage[$channelID;☑️ Ticket 3 saniye içerisinde silinicek!;no]
  `
 })
 
@@ -101,12 +101,12 @@ bot.awaitedCommand({
 bot.command({
   name:"ticket",
   code:`
-$if[$message[1]==kapat]
+$if[$message[1]==sil]
  $closeTicket[❌ Hata! Ticket'ı Kapatamadım!]
  $wait[3s]
- $channelSendMessage[$channelID;☑️ Ticket 3 saniye içerisinde kapanacak!;no]
+ $channelSendMessage[$channelID;☑️ Ticket 3 saniye içerisinde silinicek!;no]
   $else
-  $description[❌ \`zt.ticket kapat\`]
+  $description[❌ \`.ticket sil\`]
   $color[ffdbfe]
   $endif
   $onlyIf[$hasPerms[$authorID;admin]!=false;❌ Lütfen \`zt.ticket-kapat\` komutunu kullanınız.]
@@ -129,7 +129,7 @@ $let[id;$channelSendMessage[$channelID;{description:
 bot.awaitedCommand({
   name: "evet1",
   code: `
-$channelSendMessage[$channelID;**Sayın Yetkililer Ticket Kullanıcıya Kapatılmıştır Lütfen \`.ticket kapat\` komudunu kullanın.**]
+$channelSendMessage[$channelID;**Sayın Yetkililer Ticket Kullanıcıya Kapatılmıştır Lütfen \`.ticket sil\` komudunu kullanın.**]
 $wait[1s]
 $modifyChannelPerms[$channelID;-viewchannel;-sendmessages;$authorID]
  $wait[3s]
@@ -193,6 +193,7 @@ bot.command({
   $addField[Kelimeler;\`-etiket-\` > <@$authorID>;yes]
   $addField[Embed Mesaj;\`.ticket-embed-mesaj ayarla | .ticket-embed-mesaj sıfırla\`;yes]
   $addField[Mesaj;\`.ticket-mesaj ayarla | .ticket-mesaj sıfırla\`;yes]
+  $addField[Ticket Ayarları;\`.ticket-kapat | .ticket sil\`;yes]
   $addField[Ticket Kategori;\`.ticket-kategori ayarla | .ticket-kategori sıfırla\`;yes]
   $addField[Ticket Kanal;\`.ticket-kanal ayarla | .ticket-kanal sıfırla\`;yes]
    $color[ffdbfe]
