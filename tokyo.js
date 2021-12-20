@@ -87,7 +87,7 @@ $channelSendMessage[$channelID;**Sayın Yetkililer Ticket Kullanıcıya Kapatıl
 $wait[1s]
 $modifyChannelPerms[$channelID;-viewchannel;-sendmessages;$authorID]
  $wait[3s]
- $channelSendMessage[$channelID;☑️ Ticket 3 saniye içerisinde silinicek!;no]
+ $channelSendMessage[$channelID;☑️ Ticket 3 saniye içerisinde kapanıcak!;no]
  `
 })
 
